@@ -1,4 +1,4 @@
-// Refer to 
+// Refer to
 // https://github.com/zorrodg/devcontainer-nextjs-starter/blob/main/.devcontainer/devcontainer.json
 // https://blackgirlbytes.dev/how-to-set-up-a-dev-container-for-a-nextjstypescript-app
 
@@ -7,8 +7,8 @@
   "name": "NextJS and Typescript",
   // "image": "mcr.microsoft.com/devcontainers/typescript-node:1-18-bookworm",
   "build": {
-    "dockerfile": "Dockerfile"
-    // "context": ".."
+    "dockerfile": "Dockerfile",
+    "context": ".."
     // "args": {
     //   // Update 'VARIANT' to pick a Node version: 12, 14, 16
     //   "VARIANT": "14",
@@ -45,16 +45,16 @@
   //   ],
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [],
+  // "forwardPorts": [3000]
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "yarn install",
+  // "postCreateCommand": "yarn install",
 
   // instead of installing all dependencies each time the environment is created, it would only install new dependencies that have been added since the last time the environment was created
   //   "updateContentCommand": "pnpm install",
 
   // after installing the required dependencies, start my local environment with the command
-  "postAttachCommand": "yarn dev"
+  // "postAttachCommand": "yarn dev"
 
   // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
   // "remoteUser": "node"

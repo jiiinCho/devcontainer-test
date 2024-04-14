@@ -50,3 +50,18 @@ RUN yarn set version berry
 
 # # Restore cache ownership
 # RUN sudo chown -R ${USER}:${GROUP} ~/.cache
+
+# Set the working directory
+WORKDIR /workspaces
+
+# Copy package.json and yarn.lock to the working directory
+COPY package.json yarn.lock ./
+
+# Install dependencies
+RUN yarn install
+
+# Copy the rest of the application code
+COPY . .
+
+# Set the command to run the development server
+# CMD ["yarn", "dev"]
