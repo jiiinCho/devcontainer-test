@@ -1,22 +1,61 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+// Refer to 
+// https://github.com/zorrodg/devcontainer-nextjs-starter/blob/main/.devcontainer/devcontainer.json
+// https://blackgirlbytes.dev/how-to-set-up-a-dev-container-for-a-nextjstypescript-app
+
+// For format details, see https://containers.dev/implementors/json_reference/. For config options, see the README at:
 {
-	"name": "Node.js & TypeScript",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-18-bookworm"
+  "name": "NextJS and Typescript",
+  // "image": "mcr.microsoft.com/devcontainers/typescript-node:1-18-bookworm",
+  "build": {
+    "dockerfile": "Dockerfile"
+    // "context": ".."
+    // "args": {
+    //   // Update 'VARIANT' to pick a Node version: 12, 14, 16
+    //   "VARIANT": "14",
+    //   // User name has to match the 'remoteUser' argument for personalization to work
+    //   "USER": "node",
+    //   "GROUP": "node"
+    // }
+  },
 
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
+  // Set *default* container specific settings.json values on container create.
+  //   "settings": {
+  //     "search.exclude": {
+  //     	"**/.yarn": true,
+  //     	"**/.pnp.*": true
+  //     },
+  //     "eslint.nodePath": ".yarn/sdks",
+  //     "editor.codeActionsOnSave": {
+  //     	"source.eslint.fixAll": true
+  //     },
+  //     // Remember to install the font in your host machine
+  //     "terminal.integrated.fontFamily": "MesloLGS NF"
+  //   },
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+  // Add the IDs of extensions you want installed when the container is created.
+  //   "extensions": [
+  //     "arcanis.vscode-zipfs",
+  //     "dbaeumer.vscode-eslint",
+  //     "wix.vscode-import-cost",
+  //     "streetsidesoftware.code-spell-checker",
+  //     "oderwat.indent-rainbow",
+  //     "ms-azuretools.vscode-docker",
+  //     "bierner.markdown-preview-github-styles",
+  //     "yzhang.markdown-all-in-one"
+  //   ],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "yarn install",
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
 
-	// Configure tool-specific properties.
-	// "customizations": {},
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "yarn install",
 
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+  // instead of installing all dependencies each time the environment is created, it would only install new dependencies that have been added since the last time the environment was created
+  //   "updateContentCommand": "pnpm install",
+
+  // after installing the required dependencies, start my local environment with the command
+  "postAttachCommand": "yarn dev"
+
+  // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  // "remoteUser": "node"
 }
